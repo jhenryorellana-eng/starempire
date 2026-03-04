@@ -186,7 +186,7 @@ export function VideoCard({ item, isActive, shouldPreload, shouldEagerPreload, h
           text: feedItem.keyLesson,
           url: window.location.origin + `/explorar/empresa/${feedItem.companyId}`,
         });
-      } catch {
+      } catch (_e) {
         // User cancelled share
       }
     }
@@ -216,8 +216,8 @@ export function VideoCard({ item, isActive, shouldPreload, shouldEagerPreload, h
             poster={item.videoThumbnailUrl || undefined}
           />
         ) : (
+          // eslint-disable-next-line @next/next/no-img-element
           item.videoThumbnailUrl && (
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt={item.title}
               className="w-full h-full object-cover opacity-90"

@@ -158,7 +158,7 @@ async function enrichItems(supabase: any, lessons: any[], studentId: string) {
   if (!lessons || lessons.length === 0) return [];
 
   // Contar lessons reales por company
-  const companyIds = [...new Set(lessons.map((i: any) => i.companies.id))];
+  const companyIds = Array.from(new Set(lessons.map((i: any) => i.companies.id)));
   const { data: lessonCounts } = await supabase
     .from('lessons')
     .select('company_id')

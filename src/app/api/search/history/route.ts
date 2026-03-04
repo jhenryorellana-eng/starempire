@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
       .order('searched_at', { ascending: false })
       .limit(5);
 
-    const searches = [...new Set((data || []).map((d: { query: string }) => d.query))];
+    const searches = Array.from(new Set((data || []).map((d: { query: string }) => d.query)));
 
     return NextResponse.json({ searches });
   } catch (error) {
