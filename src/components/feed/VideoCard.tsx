@@ -70,6 +70,7 @@ export function VideoCard({ item, isActive, shouldPreload, shouldEagerPreload, h
       video.removeEventListener('timeupdate', onTimeUpdate);
       video.removeEventListener('loadedmetadata', onLoadedMetadata);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const trackView = async (completed: boolean) => {
@@ -121,6 +122,7 @@ export function VideoCard({ item, isActive, shouldPreload, shouldEagerPreload, h
         }
       }
     }, 300);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleReact = async (type: 'inspired' | 'game_changer') => {
@@ -215,6 +217,7 @@ export function VideoCard({ item, isActive, shouldPreload, shouldEagerPreload, h
           />
         ) : (
           item.videoThumbnailUrl && (
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt={item.title}
               className="w-full h-full object-cover opacity-90"

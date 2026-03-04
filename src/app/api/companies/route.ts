@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
         .eq('category_type', category);
 
       if (companyIds && companyIds.length > 0) {
-        const uniqueIds = [...new Set(companyIds.map((b: { company_id: string }) => b.company_id))];
+        const uniqueIds = Array.from(new Set(companyIds.map((b: { company_id: string }) => b.company_id)));
         query = query.in('id', uniqueIds);
       }
     }
